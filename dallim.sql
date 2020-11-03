@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-10-2020 a las 00:02:08
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.4
+-- Tiempo de generación: 03-11-2020 a las 19:37:38
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,18 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `articulo` (
   `id_articulo` int(11) NOT NULL,
-  `nombre_articulo` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `nombre_articulo` varchar(30) NOT NULL,
   `precio` decimal(10,0) NOT NULL,
   `oferta` tinyint(1) DEFAULT NULL,
   `precio_oferta` decimal(10,0) NOT NULL,
   `id_marca` int(11) NOT NULL,
-  `imagen` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `imagen` varchar(20) NOT NULL,
   `color` int(11) NOT NULL,
-  `descripción` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `talla` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `existencia` int(3) NOT NULL,
+  `descripción` varchar(255) NOT NULL,
+  `talla` varchar(30) NOT NULL,
   `id_tipo_articulo` int(11) NOT NULL,
   `id_diseño` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -52,8 +53,9 @@ CREATE TABLE `carrito` (
   `id_total` int(11) NOT NULL,
   `id_articulo` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
+  `fecha` date NOT NULL,
   `total_pago` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -63,8 +65,8 @@ CREATE TABLE `carrito` (
 
 CREATE TABLE `categoria` (
   `id_categoria` int(11) NOT NULL,
-  `tipo_categoria` varchar(45) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `tipo_categoria` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -75,12 +77,12 @@ CREATE TABLE `categoria` (
 CREATE TABLE `compra` (
   `id_compra` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `num_tarjeta` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `num_tarjeta` varchar(20) NOT NULL,
   `id_total` int(11) NOT NULL,
   `fecha_compra` datetime(2) NOT NULL,
-  `Descripción` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `Descripción` varchar(255) NOT NULL,
   `id_articulo` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -90,22 +92,23 @@ CREATE TABLE `compra` (
 
 CREATE TABLE `empleado` (
   `id_empleado` int(11) NOT NULL,
-  `apellidos` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
-  `nombre` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
-  `nombreUS` varchar(40) CHARACTER SET utf8 DEFAULT NULL,
-  `telefono` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
-  `direccion` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
-  `passEmp` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `apellidos` varchar(45) DEFAULT NULL,
+  `nombre` varchar(45) DEFAULT NULL,
+  `nombreUS` varchar(40) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `correo` varchar(45) DEFAULT NULL,
+  `passEmp` varchar(100) DEFAULT NULL,
   `id_articulo` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `empleado`
 --
 
-INSERT INTO `empleado` (`id_empleado`, `apellidos`, `nombre`, `nombreUS`, `telefono`, `direccion`, `passEmp`, `id_articulo`) VALUES
-(16, 'De Anda', 'Jesús', 'Chus', '4493119679', 'Gente Buena 203', 'asdf', 0),
-(18, 'Reyna', 'Katherine', 'Kat', '4491234567', '---------------', 'lomq', 0);
+INSERT INTO `empleado` (`id_empleado`, `apellidos`, `nombre`, `nombreUS`, `telefono`, `correo`, `passEmp`, `id_articulo`) VALUES
+(16, 'De Anda Delgado', 'Jesus', 'Asthas', '4493319679', 'Gente Buena 203', 'asdf', 0),
+(18, 'Reyna', 'Katherine', 'Kat', '4491234567', '---------------', 'lomq', 0),
+(23, 'Sergio', 'Martinez', 'Checo', '4497654321', 'lasdfhsf', 'sdfsl', 0);
 
 -- --------------------------------------------------------
 
@@ -115,8 +118,8 @@ INSERT INTO `empleado` (`id_empleado`, `apellidos`, `nombre`, `nombreUS`, `telef
 
 CREATE TABLE `marca` (
   `id_marca` int(11) NOT NULL,
-  `nombre_marca` varchar(45) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `nombre_marca` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -125,12 +128,11 @@ CREATE TABLE `marca` (
 --
 
 CREATE TABLE `pago` (
-  `num_tarjeta` varchar(20) CHARACTER SET utf8 NOT NULL,
-  `vence_mes` varchar(10) CHARACTER SET utf8 NOT NULL,
-  `vence_año` varchar(10) CHARACTER SET utf8 NOT NULL,
-  `key_seguridad` varchar(10) CHARACTER SET utf8 NOT NULL,
-  `banco` varchar(20) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `num_tarjeta` varchar(20) NOT NULL,
+  `vence_mes` varchar(10) NOT NULL,
+  `vence_año` varchar(10) NOT NULL,
+  `key_seguridad` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -141,12 +143,12 @@ CREATE TABLE `pago` (
 CREATE TABLE `pedidos` (
   `id_pedido` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `num_tarjeta` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `num_tarjeta` varchar(20) NOT NULL,
   `id_articulo` int(11) NOT NULL,
-  `desc_pedido` varchar(200) CHARACTER SET utf8 NOT NULL,
+  `desc_pedido` varchar(200) NOT NULL,
   `fecha_solicitud` date NOT NULL,
   `fecha_entrega` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -156,8 +158,8 @@ CREATE TABLE `pedidos` (
 
 CREATE TABLE `tipo_articulo` (
   `id_tipo_articulo` int(11) NOT NULL,
-  `tipo_articulo` varchar(30) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `tipo_articulo` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -167,9 +169,9 @@ CREATE TABLE `tipo_articulo` (
 
 CREATE TABLE `tipo_empleado` (
   `id_tipo_empleado` int(11) NOT NULL,
-  `rol_empleado` varchar(40) CHARACTER SET utf8 NOT NULL,
+  `rol_empleado` varchar(40) NOT NULL,
   `id_empleado` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -179,15 +181,16 @@ CREATE TABLE `tipo_empleado` (
 
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
-  `nombre` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `ap_pat` varchar(30) CHARACTER SET utf8 NOT NULL,
-  `ap_mat` varchar(30) CHARACTER SET utf8 NOT NULL,
-  `nombre_usuario` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
-  `password` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `correo` varchar(20) CHARACTER SET utf8 NOT NULL,
-  `telefono` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `ap_pat` varchar(30) NOT NULL,
+  `ap_mat` varchar(30) NOT NULL,
+  `nombre_usuario` varchar(20) DEFAULT NULL,
+  `password` varchar(100) NOT NULL,
+  `correo` varchar(20) NOT NULL,
+  `telefono` varchar(20) NOT NULL,
+  `direccion` varchar(60) NOT NULL,
   `fecha_nac` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Índices para tablas volcadas
@@ -286,7 +289,7 @@ ALTER TABLE `compra`
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
