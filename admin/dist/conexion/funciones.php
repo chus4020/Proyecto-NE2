@@ -142,10 +142,10 @@ echo '<head>
  echo "</table>";
 }
 
-function insertar($apellidos,$nombre,$nombreUS,$telefono,$dirreccion,$passEmp)
+function insertar($apellidos,$nombre,$nombreUS,$telefono,$correo,$passEmp)
 {
    $db = new BDSQL();
-   $consulta = $db->consulta("insert into empleado (apellidos,nombre,nombreUS,telefono,direccion,passEmp)values ('".$apellidos."','".$nombre."','".$nombreUS."','".$telefono."','".$dirreccion."','".$passEmp."')");
+   $consulta = $db->consulta("insert into empleado (apellidos,nombre,nombreUS,telefono,correo,passEmp)values ('".$apellidos."','".$nombre."','".$nombreUS."','".$telefono."','".$correo."','".$passEmp."')");
 
 }
 

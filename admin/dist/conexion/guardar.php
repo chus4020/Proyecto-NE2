@@ -1,7 +1,7 @@
 <?php
 include("funciones.php");
 
-insertar($_POST["apellidos"],$_POST["nombre"],$_POST["usuario"],$_POST["telefono"],$_POST["direccion"],$_POST["contrasena"]);
+insertar($_POST["apellidos"],$_POST["nombre"],$_POST["usuario"],$_POST["telefono"],$_POST["correo"],$_POST["contrasena"]);
 
 echo "<script> alert('Registro correcto');
    location.href= '../vistaAdmin.html';
