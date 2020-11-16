@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-11-2020 a las 05:54:25
+-- Tiempo de generación: 16-11-2020 a las 23:10:04
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -32,7 +32,7 @@ CREATE TABLE `articulo` (
   `nombre_articulo` varchar(30) NOT NULL,
   `precio` decimal(10,0) NOT NULL,
   `id_marca` int(11) NOT NULL,
-  `color` int(11) NOT NULL,
+  `color` varchar(11) NOT NULL,
   `existencia` tinyint(3) NOT NULL,
   `descripción` text NOT NULL,
   `id_talla` int(11) NOT NULL,
@@ -52,6 +52,22 @@ CREATE TABLE `articulo_categoria` (
   `tipo_categoria` varchar(45) NOT NULL,
   `tipo_articulo` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `articulo_categoria`
+--
+
+INSERT INTO `articulo_categoria` (`id_categoria`, `tipo_categoria`, `tipo_articulo`) VALUES
+(0, 'Mujer', 'Vestido'),
+(1, 'Mujer', 'Pantalón'),
+(2, 'Mujer', 'Sombrero'),
+(4, 'Mujer', 'Sombrero'),
+(5, 'Mujer', 'Tacones'),
+(6, 'Hombre', 'Tannis'),
+(7, 'Hombre', 'Camisa'),
+(8, 'Hombre', 'Sudadera'),
+(9, 'Hombre', 'Chamarra'),
+(10, 'Hombre', 'Corbata');
 
 -- --------------------------------------------------------
 
@@ -132,11 +148,16 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`id_empleado`, `apellidos`, `nombre`, `nombreUS`, `telefono`, `correo`, `passEmp`, `token`) VALUES
-(16, 'De Anda Delgado', 'Jesus', 'Asthas', '4493319679', 'Gente Buena 203', 'asdf', '0'),
-(18, 'Reyna', 'Katherine', 'Kat', '4491234567', '---------------', 'lomq', '0'),
-(23, 'Sergio', 'Martinez', 'Checo', '4497654321', 'lasdfhsf', 'sdfsl', '0'),
-(24, 'Gonzalez', 'Andres', 'AndresG', '4499876543', '', 'lomo', '0'),
-(25, 'Santos', 'Alonso', 'Sabino', '4498765432', '', 'loko', '0');
+(1, 'De Anda Delgado', 'Jesus', 'Asthas', '4493319679', 'jesus.chuy@gmail.com', 'jesus123', '1253'),
+(2, 'Reyna', 'Katherine', 'Kat', '4491234567', 'kat.reyna@gmail.com', 'kat123', '4483'),
+(3, 'Sergio', 'Martinez', 'Checo', '4497654321', 'cheko@hotmail.com', 'cheko123', '0124'),
+(4, 'Gonzalez', 'Andres', 'AndresG', '4499876543', 'andresg@gmail.com', 'andres123', '3483'),
+(5, 'Santos', 'Alonso', 'Sabino', '4498765432', 'sabino@gmail.com', 'sabino123', '0134'),
+(6, 'García', 'Johan', 'JohanGM', '4491970697', 'johan.gar@hotmail.com', 'johan123', '1234'),
+(7, 'Palos', 'Humberto', 'Humbert', '4497482812', 'humbert.palos@hotmail.com', 'humberto123', '6859'),
+(8, 'Alvarez', 'Jaqueline', 'Jackie', '4491848185', 'jackie.alv@hotmail.com', 'jackie123', '2959'),
+(9, 'Montoya', 'Roberto', 'Robert', '4493571781', 'roberto.mon@hotmail.com', 'roberto123', '4486'),
+(10, 'Hernadez', 'Joel', 'Joel', '4491758283', 'joel.ulises@gmail.com', 'joel123', '3485');
 
 -- --------------------------------------------------------
 
@@ -173,6 +194,22 @@ CREATE TABLE `marca` (
   `nombre_marca` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `marca`
+--
+
+INSERT INTO `marca` (`id_marca`, `nombre_marca`) VALUES
+(1, 'Zara'),
+(2, 'CalvinKlein'),
+(3, 'Chein'),
+(4, 'Addidas'),
+(5, 'Nike'),
+(6, 'Boquie'),
+(7, 'Dracula'),
+(8, 'D&D'),
+(9, 'ABS'),
+(10, 'Sport');
+
 -- --------------------------------------------------------
 
 --
@@ -185,6 +222,22 @@ CREATE TABLE `oferta` (
   `porcentaje_oferta` decimal(1,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `oferta`
+--
+
+INSERT INTO `oferta` (`id_oferta`, `nombre_oferta`, `porcentaje_oferta`) VALUES
+(1, 'Buen Fin', '9'),
+(2, 'Black Friday', '9'),
+(3, 'Julio Regalado', '3'),
+(4, 'Viernes 13', '4'),
+(5, 'Buen Fin 2.0', '5'),
+(6, 'ProVenta', '6'),
+(7, 'Noche Buena', '7'),
+(8, 'Halloween', '8'),
+(9, 'Mes patriotico', '1'),
+(10, 'Valentine Day', '2');
+
 -- --------------------------------------------------------
 
 --
@@ -196,6 +249,22 @@ CREATE TABLE `pago` (
   `nombre_pago` varchar(30) NOT NULL,
   `total_pago` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `pago`
+--
+
+INSERT INTO `pago` (`id_pago`, `nombre_pago`, `total_pago`) VALUES
+(1, 'Compra 1', 1273),
+(2, 'Compra 2', 1300),
+(3, 'Compra 3', 1000),
+(4, 'Compra 4', 800),
+(5, 'Compra 5', 600),
+(6, 'Compra 6', 2000),
+(7, 'Compra 7', 690),
+(8, 'Compra 8', 580),
+(9, 'Compra 9', 3000),
+(10, 'Compra 10', 500);
 
 -- --------------------------------------------------------
 
@@ -224,6 +293,22 @@ CREATE TABLE `talla` (
   `tipo_talla` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `talla`
+--
+
+INSERT INTO `talla` (`id_talla`, `tipo_talla`) VALUES
+(1, 'Ch'),
+(2, 'M'),
+(3, 'G'),
+(4, 'Ch'),
+(5, 'M'),
+(6, 'G'),
+(7, 'M'),
+(8, 'G'),
+(9, 'Ch'),
+(10, 'Ch');
+
 -- --------------------------------------------------------
 
 --
@@ -235,6 +320,22 @@ CREATE TABLE `tipo_empleado` (
   `rol_empleado` varchar(40) NOT NULL,
   `id_empleado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `tipo_empleado`
+--
+
+INSERT INTO `tipo_empleado` (`id_tipo_empleado`, `rol_empleado`, `id_empleado`) VALUES
+(1, 'Cajero', 5),
+(2, 'Proveedor', 4),
+(3, 'Marketing', 3),
+(4, 'Publicitario', 2),
+(5, 'Fabricante', 6),
+(6, 'Maquinista', 7),
+(7, 'Mostrario', 8),
+(8, 'Invertor', 9),
+(9, 'Ventas', 5),
+(10, 'Chalan', 10);
 
 -- --------------------------------------------------------
 
@@ -254,6 +355,22 @@ CREATE TABLE `usuario` (
   `direccion` varchar(60) NOT NULL,
   `fecha_nac` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `nombre`, `ap_pat`, `ap_mat`, `nombre_usuario`, `password`, `correo`, `telefono`, `direccion`, `fecha_nac`) VALUES
+(1, 'Kartherine', 'Guzman', 'Lopez', 'Katherine', 'kat123', 'kat_12@gmail.com', '4491321213', 'Col. Morelos Calle Hermanos Bravo #382', '1998-02-12'),
+(2, 'Jesus', 'Calderon', 'Hernandez', 'Chuy', 'chuy123', 'chuy.98@gmail.com', '44923103954', 'Col. Miradores Calle Del Prado #960', '1998-07-23'),
+(3, 'Johan', 'García', 'Montoya', 'JohanGM', 'johan123', 'johan_97@gmail.com', '4491970697', 'Col. Casa Blanca Calle Jefes Insurgentes #129', '1997-12-12'),
+(4, 'Andres', 'Salazar', 'Jimenez', 'Andres', 'andres123', 'andres.98@gmail.com', '4491848383', 'Col. Vistas del Sol Calle Eclipse #194', '1998-10-30'),
+(5, 'Jaqueline', 'Alvarez', 'Alba', 'Jackie', 'jackie123', 'jackie.alba@gmail.com', '4491848184', 'Col Miradores Calle Insurgentes #485', '1998-02-26'),
+(6, 'Marlene', 'Del valle', 'Vallecillo', 'Marlen', 'marlen123', 'marlen.valle@gmail.com', '4491040360', 'Col Guerrera Calle Soldado #194', '1996-12-25'),
+(7, 'Humbero', 'Palos', 'Espiricueta', 'Humbert', 'humber123', 'humbert.barca@hotmail.com', '4491848274', 'Col. Insurgentes Calle Vivero #184', '1997-08-13'),
+(8, 'Vanesa', 'Felix', 'Moreno', 'Vane', 'vane123', 'vane_felix@hotmail.com', '4491848218', 'Col Alta Vista Calle 30 de Septiembre #194', '1995-06-18'),
+(9, 'Tania', 'Moreno', 'Jimenez', 'Tania', 'tania123', 'tania_mor@hotmail.com', '4491749393', 'Col. Politecnica Calle Heroes #195', '1999-11-10'),
+(10, 'Sabino', 'Santos', 'Reyes', 'Sabino', 'sabino123', 'sabino_santos@hotmail.com', '449184818', 'Col. Lomas Calles de la Ajedrez #695', '1998-12-21');
 
 --
 -- Índices para tablas volcadas
@@ -393,7 +510,7 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
