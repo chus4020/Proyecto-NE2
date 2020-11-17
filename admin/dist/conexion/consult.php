@@ -13,7 +13,7 @@ elseif (@$_POST["todos"]=="consreg") {
 elseif (@$_POST["borrar"]=="borra") {
     borrar($_POST["clavemp"]);
     echo "<script> alert('Registro de empleado eliminado');
-   location.href= '../consulta.html';
+   location.href= '../tables.php';
    </script> ";
 }
 

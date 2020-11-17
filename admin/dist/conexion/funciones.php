@@ -36,7 +36,7 @@ echo '<head>
                               <th>Nombre</th>
                               <th>Usuario</th>
                               <th>Teléfono</th>
-                              <th>Dirección</th>
+                              <th>Email</th>
                               <th>Contraseña</th>
                               </tr>
                               </thead>
@@ -63,7 +63,7 @@ echo '<head>
       echo "</td><td>";
       echo $resultados["telefono"];
       echo "</td><td>";
-      echo $resultados["direccion"];
+      echo $resultados["correo"];
       echo "</td><td>";
       echo $resultados["passEmp"];
       echo "</td></tr>";
@@ -106,7 +106,7 @@ echo '<head>
                               <th>Nombre</th>
                               <th>Usuario</th>
                               <th>Teléfono</th>
-                              <th>Dirección</th>
+                              <th>Email</th>
                               <th>Contraseña</th>
                               </tr>
                               </thead>
@@ -133,7 +133,7 @@ echo '<head>
       echo "</td><td>";
       echo $resultados["telefono"];
       echo "</td><td>";
-      echo $resultados["direccion"];
+      echo $resultados["correo"];
       echo "</td><td>";
       echo $resultados["passEmp"];
       echo "</td></tr>";
@@ -149,10 +149,10 @@ function insertar($apellidos,$nombre,$nombreUS,$telefono,$correo,$passEmp)
 
 }
 
-function actualizar($id_empleado,$apellidos,$nombre,$nombreUS,$telefono,$dirreccion,$passEmp)
+function actualizar($id_empleado,$apellidos,$nombre,$nombreUS,$telefono,$correo,$passEmp)
 {
    $db = new BDSQL();
-   $consulta = $db->consulta("update empleado set apellidos='".$apellidos."',nombre='".$nombre."',nombreUS='".$nombreUS."',telefono='".$telefono."',direccion='".$dirreccion."',passEmp='".$passEmp."' where id_empleado= '".$id_empleado."'");
+   $consulta = $db->consulta("update empleado set apellidos='".$apellidos."',nombre='".$nombre."',nombreUS='".$nombreUS."',telefono='".$telefono."',correo='".$correo."',passEmp='".$passEmp."' where id_empleado= '".$id_empleado."'");
    
 
 }

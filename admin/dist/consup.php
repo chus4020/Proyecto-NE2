@@ -1,7 +1,4 @@
-<?php
-
-include("conexion/editar.php");
-?>
+<?php require_once "vistas/superior.php"?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -109,3 +106,4 @@ include("conexion/editar.php");
         <script src="js/scripts.js"></script>
     </body>
 </html>
+<?php require_once "vistas/inferior.php"?>

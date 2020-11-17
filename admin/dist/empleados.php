@@ -117,4 +117,4 @@
                 </footer>
             </div>
 
-<?php require_once "vistas/inferior.php"?>
+            <?php require_once "vistas/inferior.php"?>
