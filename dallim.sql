@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-11-2020 a las 23:10:04
+-- Tiempo de generación: 17-11-2020 a las 01:12:26
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -41,6 +41,22 @@ CREATE TABLE `articulo` (
   `id_imagen` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `articulo`
+--
+
+INSERT INTO `articulo` (`id_articulo`, `nombre_articulo`, `precio`, `id_marca`, `color`, `existencia`, `descripción`, `id_talla`, `id_diseño`, `id_oferta`, `id_imagen`) VALUES
+(1, 'Vestido', '350', 1, 'Rosa', 3, 'Vestido para dama', 1, 1, 1, 1),
+(2, 'Sombrero', '400', 3, 'Negro', 2, 'Sombrero para dama', 2, 1, 2, 2),
+(3, 'Blusa', '200', 6, 'Azul', 4, 'Blusa para dama', 3, 2, 3, 3),
+(4, 'Botas', '450', 9, 'Negro', 4, 'Botas largas para dama', 4, 4, 4, 4),
+(5, 'Tacones', '2000', 1, 'Negro', 1, 'Tacones para dama', 5, 5, 5, 5),
+(6, 'Tennis', '1200', 10, 'Blanco', 3, 'Tennis para deportistas', 6, 6, 6, 6),
+(7, 'Sudadera', '500', 5, 'Negro', 3, 'Sudadera hombre Nike', 7, 7, 7, 7),
+(8, 'Chamarra', '900', 7, 'Cafe', 1, 'Chamarra doble vista caballero', 8, 8, 8, 8),
+(9, 'Corbata', '100', 2, 'Rojo', 7, 'Corbata para traje caballero', 9, 9, 9, 9),
+(10, 'Camisa', '300', 9, 'Blanco', 5, 'Camisa para traje caballero', 10, 10, 10, 10);
+
 -- --------------------------------------------------------
 
 --
@@ -60,7 +76,7 @@ CREATE TABLE `articulo_categoria` (
 INSERT INTO `articulo_categoria` (`id_categoria`, `tipo_categoria`, `tipo_articulo`) VALUES
 (0, 'Mujer', 'Vestido'),
 (1, 'Mujer', 'Pantalón'),
-(2, 'Mujer', 'Sombrero'),
+(2, 'Mujer', 'Medias'),
 (4, 'Mujer', 'Sombrero'),
 (5, 'Mujer', 'Tacones'),
 (6, 'Hombre', 'Tannis'),
@@ -82,6 +98,22 @@ CREATE TABLE `articulo_visita` (
   `fecha` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `articulo_visita`
+--
+
+INSERT INTO `articulo_visita` (`id_visita`, `id_usuario`, `id_articulo`, `fecha`) VALUES
+(1, 1, 1, '2020-11-27 10:32:13'),
+(2, 2, 2, '2020-11-18 12:18:52'),
+(3, 3, 3, '2020-11-17 05:32:52'),
+(4, 4, 4, '2020-11-25 10:32:52'),
+(5, 5, 5, '2020-11-17 17:49:11'),
+(6, 6, 6, '2020-11-30 17:32:52'),
+(7, 7, 7, '2020-11-18 17:32:52'),
+(8, 8, 8, '2020-11-30 15:32:52'),
+(9, 9, 9, '2020-11-21 17:32:52'),
+(10, 10, 10, '2020-11-25 17:32:52');
+
 -- --------------------------------------------------------
 
 --
@@ -97,6 +129,22 @@ CREATE TABLE `calificaciones` (
   `fecha_hora` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `calificaciones`
+--
+
+INSERT INTO `calificaciones` (`id_calif`, `id_usuario`, `id_articulo`, `comentario`, `calificacion`, `fecha_hora`) VALUES
+(1, 1, 1, 'Vestido para dama', 10, '2020-11-17 17:36:26'),
+(2, 2, 2, 'Sombrero para dama', 9, '2020-11-17 17:38:08'),
+(3, 3, 3, 'Blusa para dama', 9, '2020-11-29 17:38:08'),
+(4, 4, 4, 'Botas largas para dama', 10, '2020-11-17 17:38:08'),
+(5, 5, 5, 'Tacones para dama', 10, '2020-11-16 17:49:59'),
+(6, 6, 6, 'Tennis deportivos caballero', 9, '2020-11-17 17:38:08'),
+(7, 7, 7, 'Sudadera doble vista caballero', 10, '2020-11-19 17:38:08'),
+(8, 8, 8, 'Chamarra gruesa caballero', 9, '2020-11-17 17:38:08'),
+(9, 9, 9, 'Corbata para traje caballero', 10, '2020-11-22 17:38:08'),
+(10, 10, 10, 'Camisa para traje caballero', 10, '2020-11-24 17:38:08');
+
 -- --------------------------------------------------------
 
 --
@@ -109,6 +157,22 @@ CREATE TABLE `carrito` (
   `cantidad` int(11) NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `carrito`
+--
+
+INSERT INTO `carrito` (`id_total`, `id_articulo`, `cantidad`, `fecha`) VALUES
+(1, 1, 1, '2020-11-16'),
+(2, 2, 2, '2020-11-17'),
+(3, 3, 3, '2020-11-17'),
+(4, 4, 3, '2020-11-17'),
+(5, 5, 3, '2020-11-17'),
+(6, 6, 1, '2020-11-16'),
+(7, 7, 3, '2020-11-17'),
+(8, 8, 1, '2020-11-20'),
+(9, 9, 5, '2020-11-16'),
+(10, 10, 2, '2020-11-16');
 
 -- --------------------------------------------------------
 
@@ -125,6 +189,22 @@ CREATE TABLE `compra` (
   `Descripción` varchar(255) NOT NULL,
   `id_articulo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `compra`
+--
+
+INSERT INTO `compra` (`id_compra`, `id_usuario`, `num_tarjeta`, `id_total`, `fecha_compra`, `Descripción`, `id_articulo`) VALUES
+(1, 1, '1', 1, '2020-11-17 12:52:47.00', 'Realizo compra el dia de hoy', 1),
+(2, 2, '2', 2, '2020-11-18 17:54:13.00', 'Realizo compra de distintos productos', 2),
+(3, 3, '3', 3, '2020-11-09 17:54:13.00', 'Realizo compra para dama', 3),
+(4, 4, '4', 4, '2020-11-18 17:54:14.00', 'Realizo compra para su hijo', 4),
+(5, 5, '5', 5, '2020-11-18 17:54:14.00', 'Realizo compra para su esposa', 5),
+(6, 6, '6', 6, '2020-11-20 17:54:14.00', 'Compro solamente un articulo', 6),
+(7, 7, '7', 7, '2020-11-21 17:54:14.00', 'Realizo compra para su esposo', 7),
+(8, 8, '8', 8, '2020-11-22 17:54:14.00', 'Compra para su hijo', 8),
+(9, 9, '9', 9, '2020-11-22 17:54:14.00', 'Compro artículos para su novio', 9),
+(10, 10, '10', 10, '2020-11-16 17:54:14.00', 'Realizo compra para el mismo', 10);
 
 -- --------------------------------------------------------
 
@@ -182,6 +262,22 @@ CREATE TABLE `lista_deseos` (
   `fecha` date NOT NULL,
   `id_articulo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `lista_deseos`
+--
+
+INSERT INTO `lista_deseos` (`id_listadeseos`, `id_usuario`, `fecha`, `id_articulo`) VALUES
+(1, 1, '2020-11-15', 1),
+(2, 2, '2020-11-09', 2),
+(3, 3, '2020-11-19', 3),
+(4, 4, '2020-11-12', 4),
+(5, 5, '2020-11-25', 5),
+(6, 6, '2020-11-11', 6),
+(7, 7, '2020-11-18', 7),
+(8, 8, '2020-11-13', 8),
+(9, 9, '2020-11-10', 9),
+(10, 10, '2020-11-10', 10);
 
 -- --------------------------------------------------------
 
@@ -281,6 +377,22 @@ CREATE TABLE `pedidos` (
   `fecha_solicitud` date NOT NULL,
   `fecha_entrega` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`id_pedido`, `id_usuario`, `num_tarjeta`, `id_articulo`, `desc_pedido`, `fecha_solicitud`, `fecha_entrega`) VALUES
+(1, 1, '1', 1, 'Requiere envió inmediato', '2020-11-09', '2020-11-10'),
+(2, 2, '2', 2, 'Pedido urgente', '2020-11-11', '2020-11-12'),
+(3, 3, '3', 3, 'Pedido internacional', '2020-11-14', '2020-11-19'),
+(4, 0, '4', 4, 'Pedido urgen', '2020-11-16', '2020-11-17'),
+(5, 5, '5', 5, 'Pedido para Kloe Kardashian', '2020-11-15', '2020-11-19'),
+(6, 6, '6', 6, 'Pedio para desportista', '2020-11-08', '2020-11-09'),
+(7, 7, '7', 7, 'Pedido poco urgente', '2020-11-08', '2020-11-26'),
+(8, 8, '8', 8, 'Pedido poco prioritario', '2020-11-02', '2020-11-12'),
+(9, 9, '9', 9, 'Pedido para nuestro presidente cabeza de algodón', '2020-11-17', '2020-11-19'),
+(10, 10, '10', 10, 'Camisa para Obama URGENTE', '2020-11-18', '2020-11-20');
 
 -- --------------------------------------------------------
 
@@ -384,7 +496,6 @@ ALTER TABLE `articulo`
   ADD KEY `id_diseño` (`id_diseño`),
   ADD KEY `articulo_marca` (`id_marca`),
   ADD KEY `id_oferta` (`id_oferta`),
-  ADD KEY `id_imagen` (`id_imagen`),
   ADD KEY `id_talla` (`id_talla`);
 
 --
@@ -492,7 +603,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `compra`
 --
 ALTER TABLE `compra`
-  MODIFY `id_compra` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
@@ -504,7 +615,7 @@ ALTER TABLE `empleado`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
@@ -521,7 +632,6 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `articulo`
   ADD CONSTRAINT `articulo_ibfk_1` FOREIGN KEY (`id_diseño`) REFERENCES `articulo_categoria` (`id_categoria`),
-  ADD CONSTRAINT `articulo_imagen` FOREIGN KEY (`id_imagen`) REFERENCES `imagen` (`id_imagen`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `articulo_marca` FOREIGN KEY (`id_marca`) REFERENCES `marca` (`id_marca`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `articulo_oferta` FOREIGN KEY (`id_oferta`) REFERENCES `oferta` (`id_oferta`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `articulo_talla` FOREIGN KEY (`id_talla`) REFERENCES `talla` (`id_talla`);
