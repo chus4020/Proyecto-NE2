@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2020 a las 02:46:30
+-- Tiempo de generación: 22-11-2020 a las 19:04:25
 -- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.11
+-- Versión de PHP: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -54,7 +54,27 @@ INSERT INTO `articulo` (`id_articulo`, `nombre_articulo`, `precio`, `id_marca`, 
 (7, 'Sudadera', '500', 5, 'Negro', 3, 'Sudadera hombre Nike', 2, 8, 7),
 (8, 'Chamarra', '900', 7, 'Cafe', 1, 'Chamarra doble vista caballero', 4, 9, 8),
 (9, 'Corbata', '100', 2, 'Rojo', 7, 'Corbata para traje caballero', 3, 10, 9),
-(10, 'Camisa', '300', 9, 'Blanco', 5, 'Camisa para traje caballero', 5, 7, 10);
+(10, 'Camisa', '300', 9, 'Blanco', 5, 'Camisa para traje caballero', 5, 7, 10),
+(11, 'Bufanda', '200', 11, 'Azul', 4, 'Bufanda corta para dama', 2, 11, 11),
+(12, 'Gorro', '50', 12, 'Negro', 6, 'Gorro para dama', 2, 12, 5),
+(13, 'Ropa Interior', '50', 13, 'Rosa', 5, 'Ropa interior para dama', 4, 13, 4),
+(14, 'Cinturón Dama', '700', 14, 'Negro', 5, 'Cinturón elegante para dama', 4, 14, 14),
+(15, 'Lentes', '200', 15, 'Negro', 2, 'Lentes para dama elegente', 4, 15, 15),
+(16, 'Maquillaje', '500', 16, 'Rosa', 3, 'Maquillaje para dama de todo tipo', 1, 16, 12),
+(17, 'Bolso', '3000', 17, 'Blanco', 5, 'Bolso para dama', 3, 17, 7),
+(18, 'Perfume', '400', 18, 'Azul', 2, 'Perfume para dama Lacoste', 3, 18, 12),
+(19, 'Tacones', '900', 19, 'Negro', 2, 'Tacones altos para dama', 2, 19, 4),
+(20, 'Short', '200', 20, 'Blanco', 4, 'Short GAP', 1, 20, 13),
+(21, 'Lentes oscuros', '200', 21, 'Negro', 4, 'Lentes para caballero', 3, 21, 10),
+(22, 'Saco', '1500', 22, 'Negro', 4, 'Saco elegante', 2, 22, 11),
+(23, 'Moño', '350', 23, 'Negro', 3, 'Moño para traje', 3, 23, 8),
+(24, 'Camiseta', '50', 24, 'Azul', 4, 'Camiseta para caballero', 3, 24, 8),
+(25, 'Short', '250', 25, 'Cafe', 1, 'Short para hombre', 4, 25, 9),
+(26, 'Calcetines', '100', 26, 'Blanco', 3, 'Calcetines deportivos', 3, 26, 15),
+(27, 'Chaleco', '300', 27, 'Café', 3, 'Chaleco para traje', 4, 27, 12),
+(28, 'Cinturón Hombre', '150', 28, 'Negro', 2, 'Cinturón para caballero', 2, 28, 15),
+(29, 'Reloj', '4000', 29, 'Cafe', 2, 'Reloj edición limitada', 4, 29, 1),
+(30, 'Pijama', '400', 30, 'Negro', 3, 'Pijama para noche', 3, 30, 2);
 
 -- --------------------------------------------------------
 
@@ -82,7 +102,27 @@ INSERT INTO `articulo_categoria` (`id_categoria`, `tipo_categoria`, `tipo_articu
 (7, 'Hombre', 'Camisa'),
 (8, 'Hombre', 'Sudadera'),
 (9, 'Hombre', 'Chamarra'),
-(10, 'Hombre', 'Corbata');
+(10, 'Hombre', 'Corbata'),
+(11, 'Mujer', 'Bufanda'),
+(12, 'Mujer', 'Gorro'),
+(13, 'Mujer', 'Ropa Interior'),
+(14, 'Mujer', 'Cinturon'),
+(15, 'Mujer', 'Lentes'),
+(16, 'Mujer', 'Maquillaje'),
+(17, 'Mujer', 'Bolso'),
+(18, 'Mujer', 'Perfume'),
+(19, 'Mujer', 'Tacones'),
+(20, 'Mujer', 'Short'),
+(21, 'Hombre', 'Lentes oscuros'),
+(22, 'Hombre', 'Saco'),
+(23, 'Hombre', 'Moño'),
+(24, 'Hombre', 'Camiseta'),
+(25, 'Hombre', 'Short'),
+(26, 'Hombre', 'Calcetines'),
+(27, 'Hombre', 'Chaleco'),
+(28, 'Hombre', 'Cinturón hombre'),
+(29, 'Hombre', 'Reloj'),
+(30, 'Hombre', 'Pijama');
 
 -- --------------------------------------------------------
 
@@ -111,7 +151,27 @@ INSERT INTO `articulo_visita` (`id_visita`, `id_usuario`, `id_articulo`, `fecha`
 (7, 7, 7, '2020-11-18 17:32:52'),
 (8, 8, 8, '2020-11-30 15:32:52'),
 (9, 9, 9, '2020-11-21 17:32:52'),
-(10, 10, 10, '2020-11-25 17:32:52');
+(10, 10, 10, '2020-11-25 17:32:52'),
+(11, 11, 1, '2020-11-18 17:30:39'),
+(12, 12, 2, '2020-11-23 17:30:39'),
+(13, 13, 3, '2020-11-24 17:30:39'),
+(14, 14, 4, '2020-11-03 17:30:39'),
+(15, 15, 5, '2020-11-12 17:30:39'),
+(16, 16, 6, '2020-11-10 17:30:39'),
+(17, 17, 7, '2020-11-18 17:30:39'),
+(18, 18, 8, '2020-11-07 17:30:39'),
+(19, 19, 9, '2020-11-10 17:30:39'),
+(20, 20, 10, '2020-11-18 17:30:39'),
+(21, 21, 21, '2020-11-24 18:04:09'),
+(22, 22, 22, '2020-11-30 18:04:09'),
+(23, 23, 23, '2020-11-03 18:04:09'),
+(24, 24, 24, '2020-11-17 18:04:09'),
+(25, 25, 25, '2020-11-26 18:04:09'),
+(26, 26, 26, '2020-11-24 18:04:09'),
+(27, 27, 27, '2020-11-24 18:04:09'),
+(28, 28, 28, '2020-11-05 18:04:09'),
+(29, 29, 29, '2020-11-25 18:04:09'),
+(30, 30, 30, '2020-11-09 18:04:09');
 
 -- --------------------------------------------------------
 
@@ -142,7 +202,27 @@ INSERT INTO `calificaciones` (`id_calif`, `id_usuario`, `id_articulo`, `comentar
 (7, 7, 7, 'Sudadera doble vista caballero', 10, '2020-11-19 17:38:08'),
 (8, 8, 8, 'Chamarra gruesa caballero', 9, '2020-11-17 17:38:08'),
 (9, 9, 9, 'Corbata para traje caballero', 10, '2020-11-22 17:38:08'),
-(10, 10, 10, 'Camisa para traje caballero', 10, '2020-11-24 17:38:08');
+(10, 10, 10, 'Camisa para traje caballero', 10, '2020-11-24 17:38:08'),
+(11, 11, 3, 'Blusa azul cómoda', 10, '2020-11-21 17:39:37'),
+(12, 12, 2, 'Sombrero para hombre', 9, '2020-11-21 17:39:37'),
+(13, 13, 1, 'Vestido corto', 10, '2020-11-21 17:39:37'),
+(14, 14, 8, 'Chamarra caliente', 9, '2020-11-21 17:39:37'),
+(15, 15, 5, 'Tacones altos', 10, '2020-11-21 17:39:37'),
+(16, 16, 6, 'Tennis deportivos', 9, '2020-11-21 17:39:37'),
+(17, 17, 7, 'Sudadera Puma', 10, '2020-11-21 17:39:37'),
+(18, 18, 9, 'Corbata para smoking', 10, '2020-11-21 17:39:37'),
+(19, 19, 4, 'Botas gruesas', 10, '2020-11-21 17:39:37'),
+(20, 20, 10, 'Camisa blanca lisa', 10, '2020-11-21 17:39:37'),
+(21, 21, 21, 'Lentes muy oscuros', 10, '2020-11-21 18:13:49'),
+(22, 22, 22, 'Saco elegante negro', 9, '2020-11-21 18:13:49'),
+(23, 23, 23, 'Moño para smoking', 10, '2020-11-21 18:13:49'),
+(24, 24, 24, 'Camiseta para caballero', 9, '2020-11-21 18:13:49'),
+(25, 25, 25, 'Short corto', 10, '2020-11-21 18:13:49'),
+(26, 26, 26, 'Calcetines deportivos', 9, '2020-11-21 18:13:49'),
+(27, 27, 27, 'Chaleco para traje', 10, '2020-11-21 18:13:49'),
+(28, 28, 28, 'Cinturón ajustable', 10, '2020-11-21 18:13:49'),
+(29, 29, 29, 'Reloj edición limitada', 10, '2020-11-21 18:13:49'),
+(30, 30, 30, 'Pijama super cómoda varón', 10, '2020-11-21 18:13:49');
 
 -- --------------------------------------------------------
 
@@ -171,7 +251,27 @@ INSERT INTO `carrito` (`id_total`, `id_articulo`, `cantidad`, `fecha`) VALUES
 (7, 7, 3, '2020-11-17'),
 (8, 8, 1, '2020-11-20'),
 (9, 9, 5, '2020-11-16'),
-(10, 10, 2, '2020-11-16');
+(10, 10, 2, '2020-11-16'),
+(11, 11, 2, '2020-11-03'),
+(12, 12, 2, '2020-11-12'),
+(13, 13, 2, '2020-11-04'),
+(14, 14, 2, '2020-11-13'),
+(15, 15, 2, '2020-11-12'),
+(16, 16, 1, '2020-11-20'),
+(17, 17, 1, '2020-11-19'),
+(18, 18, 2, '2020-11-12'),
+(19, 19, 2, '2020-11-02'),
+(20, 20, 2, '2020-11-19'),
+(21, 21, 2, '2020-11-19'),
+(22, 22, 2, '2020-11-11'),
+(23, 23, 2, '2020-11-11'),
+(24, 24, 2, '2020-11-26'),
+(25, 25, 2, '2020-11-12'),
+(26, 26, 2, '2020-11-06'),
+(27, 26, 2, '2020-11-23'),
+(28, 28, 3, '2020-11-30'),
+(29, 29, 1, '2020-11-10'),
+(30, 30, 2, '2020-11-25');
 
 -- --------------------------------------------------------
 
@@ -236,7 +336,27 @@ INSERT INTO `empleado` (`id_empleado`, `apellidos`, `nombre`, `nombreUS`, `telef
 (7, 'Palos', 'Humberto', 'Humbert', '4497482812', 'humbert.palos@hotmail.com', 'humberto123', '6859'),
 (8, 'Alvarez', 'Jaqueline', 'Jackie', '4491848185', 'jackie.alv@hotmail.com', 'jackie123', '2959'),
 (9, 'Montoya', 'Roberto', 'Robert', '4493571781', 'roberto.mon@hotmail.com', 'roberto123', '4486'),
-(10, 'Hernadez', 'Joel', 'Joel', '4491758283', 'joel.ulises@gmail.com', 'joel123', '3485');
+(10, 'Hernadez', 'Joel', 'Joel', '4491758283', 'joel.ulises@gmail.com', 'joel123', '3485'),
+(11, 'Carvajal', 'Anastasio', 'Ana', '4491046430', 'ana@dallim.com', 'ana123', '3212'),
+(12, 'Barajas', 'Roberto', 'Robert', '4491042842', 'rober@dallim.com', 'robert123', '2313'),
+(13, 'Marisol', 'Rodríguez', 'Mary', '4492040311', 'mary@dallim.com', 'mary123', '1831'),
+(14, 'Roztak', 'Dross', 'Dross', '4492050431', 'dross@dallim.com', 'dross123', '3728'),
+(15, 'Torres', 'Enrique', 'Kike', '4490140392', 'kike@dallim.com', 'kike123', '2848'),
+(16, 'Del Valle', 'Thania', 'Thania', '4492020304', 'thania@dallim.com', 'thania123', '3882'),
+(17, 'Santana', 'Jessica', 'Jessy', '4491039530', 'jessy@dallim.com', 'jessy123', '2849'),
+(18, 'Montoya', 'Emmanuel', 'Emma', '4491040354', 'emma@dallim.com', 'emma123', '3849'),
+(19, 'Alba', 'Alaba', 'Alba', '4492059429', 'alba@dallim.com', 'alba123', '3583'),
+(20, 'Bañuelos', 'Selene', 'Selene', '4491049385', 'selene@dallim.com', 'selene123', '3959'),
+(21, 'Villalobos', 'Erika', 'Erika', '4490913954', 'erika@dallim.com', 'erika123', '2848'),
+(22, 'Damasco', 'Eros', 'Eros', '4491030393', 'eros@dallim.com', 'eros123', '1374'),
+(23, 'Rodriguez', 'Dante', 'Dante', '4491929234', 'dante@dallim.com', 'dante123', '2842'),
+(24, 'Limon', 'Ruth', 'Ruth', '4491032202', 'ruth@dallim.com', 'ruth123', '2539'),
+(25, 'Salazar', 'Ivan', 'Ivan', '4491828382', 'ivan@dallim.com', 'ivan123', '3853'),
+(26, 'Rosales', 'Fernanda', 'Fer', '4499430381', 'fer@dallim.com', 'fer123', '1832'),
+(27, 'Esparza', 'Johana', 'Johana', '4491029349', 'johana@dallim.com', 'johana123', '2748'),
+(28, 'Tabata', 'Noemi', 'Noemi', '4491039283', 'noemi@dallim.com', 'noemi123', '2842'),
+(29, 'Olivares', 'Omar', 'Omar', '4491030294', 'omar@dallim.com', 'omar123', '3838'),
+(30, 'Mojica', 'Abigail', 'Abby', '4491039458', 'abby@dallim.com', 'abby123', '1395');
 
 -- --------------------------------------------------------
 
@@ -285,7 +405,18 @@ INSERT INTO `lista_deseos` (`id_listadeseos`, `id_usuario`, `fecha`, `id_articul
 (7, 7, '2020-11-18', 7),
 (8, 8, '2020-11-13', 8),
 (9, 9, '2020-11-10', 9),
-(10, 10, '2020-11-10', 10);
+(10, 10, '2020-11-10', 10),
+(11, 11, '0000-00-00', 11),
+(21, 21, '2020-11-10', 21),
+(22, 22, '2020-11-16', 22),
+(23, 23, '2020-11-16', 23),
+(24, 24, '2020-11-11', 24),
+(25, 25, '2020-11-05', 25),
+(26, 26, '2020-11-12', 26),
+(27, 27, '2020-11-10', 27),
+(28, 28, '2020-11-11', 28),
+(29, 29, '2020-11-02', 29),
+(30, 30, '2020-11-11', 30);
 
 -- --------------------------------------------------------
 
@@ -312,7 +443,27 @@ INSERT INTO `marca` (`id_marca`, `nombre_marca`) VALUES
 (7, 'Dracula'),
 (8, 'D&D'),
 (9, 'ABS'),
-(10, 'Sport');
+(10, 'Sport'),
+(11, 'Dior'),
+(12, 'Inditex'),
+(13, 'Cheil'),
+(14, 'TJX'),
+(15, 'H&M'),
+(16, 'Reebok'),
+(17, 'Fila'),
+(18, 'Lacoste'),
+(19, 'Ecko'),
+(20, 'GAP'),
+(21, 'Under'),
+(22, 'Gasta'),
+(23, 'Tommy'),
+(24, 'NBA'),
+(25, 'Vans'),
+(26, 'Just Do It'),
+(27, 'Wilson'),
+(28, 'Yonex'),
+(29, 'Kaapa'),
+(30, 'DC');
 
 -- --------------------------------------------------------
 
@@ -340,7 +491,12 @@ INSERT INTO `oferta` (`id_oferta`, `nombre_oferta`, `porcentaje_oferta`) VALUES
 (7, 'Noche Buena', '7'),
 (8, 'Halloween', '8'),
 (9, 'Mes patriotico', '1'),
-(10, 'Valentine Day', '2');
+(10, 'Valentine Day', '2'),
+(11, 'Black Monday', '9'),
+(12, 'Terror', '9'),
+(13, 'Dia del Niño', '9'),
+(14, 'Dia de la Madre', '9'),
+(15, 'Mes del Amor', '9');
 
 -- --------------------------------------------------------
 
@@ -367,7 +523,27 @@ INSERT INTO `pago` (`id_pago`, `nombre_pago`) VALUES
 (7, 'Compra 7'),
 (8, 'Compra 8'),
 (9, 'Compra 9'),
-(10, 'Compra 10');
+(10, 'Compra 10'),
+(11, 'Compra 11'),
+(12, 'Compra 12'),
+(13, 'Compra 13'),
+(14, 'Compra 14'),
+(15, 'Compra 15'),
+(16, 'Compra 16'),
+(17, 'Compra 17'),
+(18, 'Compra 18'),
+(19, 'Compra 19'),
+(20, 'Compra 20'),
+(21, 'Compra 21'),
+(22, 'Compra 22'),
+(23, 'Compra 23'),
+(24, 'Compra 24'),
+(25, 'Compra 25'),
+(26, 'Compra 26'),
+(27, 'Compra 27'),
+(28, 'Compra 28'),
+(29, 'Compra 29'),
+(30, 'Compra 30');
 
 -- --------------------------------------------------------
 
@@ -399,7 +575,27 @@ INSERT INTO `pedidos` (`id_pedido`, `id_usuario`, `num_tarjeta`, `id_articulo`, 
 (7, 7, '7', 7, 'Pedido poco urgente', '2020-11-08', '2020-11-26'),
 (8, 8, '8', 8, 'Pedido poco prioritario', '2020-11-02', '2020-11-12'),
 (9, 9, '9', 9, 'Pedido para nuestro presidente cabeza de algodón', '2020-11-17', '2020-11-19'),
-(10, 10, '10', 10, 'Camisa para Obama URGENTE', '2020-11-18', '2020-11-20');
+(10, 10, '10', 10, 'Camisa para Obama URGENTE', '2020-11-18', '2020-11-20'),
+(11, 11, '11', 11, 'Pedido ', '2020-11-08', '2020-11-25'),
+(12, 12, '12', 12, 'Pedido 12', '2020-11-23', '2020-11-11'),
+(13, 13, '13', 13, 'Pedido 13', '2020-11-09', '2020-11-11'),
+(14, 14, '14', 14, 'Pedido 14', '2020-11-09', '2020-11-11'),
+(15, 15, '15', 15, 'Pedido 15', '2020-11-09', '2020-11-11'),
+(16, 16, '16', 16, 'Pedido 16', '2020-11-09', '2020-11-19'),
+(17, 17, '17', 17, 'Pedido 17', '2020-11-02', '2020-11-17'),
+(18, 18, '18', 18, 'Pedido 18', '2020-11-09', '2020-11-11'),
+(19, 19, '19', 19, 'Pedido 19', '2020-11-09', '2020-11-18'),
+(20, 20, '20', 20, 'Pedido 20', '2020-11-10', '2020-11-18'),
+(21, 21, '21', 21, 'Pedido 21', '2020-11-09', '2020-11-19'),
+(22, 22, '22', 22, 'Pedido 22', '2020-11-06', '2020-11-12'),
+(23, 23, '23', 23, 'Pedido 23', '2020-11-10', '2020-11-18'),
+(24, 24, '24', 24, 'Pedido 24', '2020-11-18', '2020-11-26'),
+(25, 25, '25', 25, 'Pedido 25', '2020-11-09', '2020-11-24'),
+(26, 26, '26', 26, 'Pedido 26', '2020-11-02', '2020-11-05'),
+(27, 27, '27', 27, 'Pedido 27', '2020-11-04', '2020-11-11'),
+(28, 28, '28', 28, 'Pedido 28', '2020-11-05', '2020-11-19'),
+(29, 29, '29', 29, 'Pedido 29', '2020-11-04', '2020-11-11'),
+(30, 30, '30', 30, 'Pedido 30', '2020-11-09', '2020-11-18');
 
 -- --------------------------------------------------------
 
@@ -484,7 +680,27 @@ INSERT INTO `usuario` (`id_usuario`, `nombre`, `ap_pat`, `ap_mat`, `nombre_usuar
 (7, 'Humbero', 'Palos', 'Espiricueta', 'Humbert', 'humber123', 'humbert.barca@hotmail.com', '4491848274', 'Col. Insurgentes Calle Vivero #184', '1997-08-13'),
 (8, 'Vanesa', 'Felix', 'Moreno', 'Vane', 'vane123', 'vane_felix@hotmail.com', '4491848218', 'Col Alta Vista Calle 30 de Septiembre #194', '1995-06-18'),
 (9, 'Tania', 'Moreno', 'Jimenez', 'Tania', 'tania123', 'tania_mor@hotmail.com', '4491749393', 'Col. Politecnica Calle Heroes #195', '1999-11-10'),
-(10, 'Sabino', 'Santos', 'Reyes', 'Sabino', 'sabino123', 'sabino_santos@hotmail.com', '449184818', 'Col. Lomas Calles de la Ajedrez #695', '1998-12-21');
+(10, 'Sabino', 'Santos', 'Reyes', 'Sabino', 'sabino123', 'sabino_santos@hotmail.com', '449184818', 'Col. Lomas Calles de la Ajedrez #695', '1998-12-21'),
+(11, 'Jose', 'Avila', 'García', 'Jose', 'jose123', 'jose@hotmail.com', '4498593949', 'Col. Lomas del Chapulín Calle Chapulín #294', '1967-11-27'),
+(12, 'Nelida', 'Montoya', 'Hernandez', 'Nely', 'nely123', 'nely@gmail.com', '4490022365', 'Col. Héroe Militar Calle Soldado #294', '1970-10-28'),
+(13, 'Luis', 'Montoya ', 'Hernadez', 'Luis', 'luis123', 'luis@hotmail.com', '4490282848', 'Col. México Calle Independencia #285', '1998-09-21'),
+(14, 'David', 'Arechar', 'Gómez', 'Davi', 'davi123', 'davi@hotmail.com', '4491848452', 'Col. Pirámides Calle Egipcio #295', '1998-12-21'),
+(15, 'Joselin', 'Jimenez ', 'Aleman', 'Joselin', 'joselin123', 'joselin@gmail.com', '4998593852', 'Col. Gómez Portugal Calle Aurora', '1993-11-12'),
+(16, 'Diego', 'Flores', 'Valle', 'Diego', 'diego123', 'diego@hotmail.com', '4492848956', 'Col. Tecnológico Calle Tic´s #294', '1989-02-09'),
+(17, 'Sandra', 'Hernadez', 'Montoya', 'Sandra', 'sandra123', 'sandra@gmail.com', '4490787634', 'Col. Lomas Calles de la Ajedrez #695', '1984-12-12'),
+(18, 'Victor', 'Romos', 'Arellano', 'Vic', 'vic123', 'vic@gmail.com', '4492471290', 'Col. Santa Lucia Calle Destello #285', '1965-12-08'),
+(19, 'Geovanni', 'Montoya ', 'Arechar', 'Geo', 'geo123', 'geo@hotmail.com', '4491848475', 'Col. Salud Calle Ojo del agua #294', '1995-12-14'),
+(20, 'Alejandro', 'García', 'Montoya', 'Ale', 'ale123', 'ale@hotmail.com', '4490506932', 'Col. Casa Nueva Calle Soleado #859', '2019-02-04'),
+(21, 'Perla', 'Jimenez', 'Flores', 'Perla', 'perla123', 'perla@yahoo.com', '4491848594', 'Col. Vistas del Sol Calle Eclipse #194', '1998-09-21'),
+(22, 'Gema', 'Bajada', 'Olivares', 'Gema', 'gema123', 'gema@hotmail.com', '4491040520', 'Col. Casa Blanca Calle Jefes Insurgentes #129', '1997-09-21'),
+(23, 'Esther', 'Ponce', 'Guazo', 'Esther', 'esther123', 'esther@hotmail.com', '4492060543', 'Col. Guerrera Calle Soldado #194', '1998-12-31'),
+(24, 'Abigail', 'Barajas', 'Macias', 'Abby', 'abby123', 'abby@hotmail.com', '4490839493', 'Col. Insurgentes Calle Vivero #184', '2005-12-23'),
+(25, 'Gabriel', 'Martinez', 'Navarro', 'Gaby', 'gaby123', 'gaby@gmail.com', '449205063', 'Col. Mexico Libre Calle DF #593', '2009-12-21'),
+(26, 'Esmeralda', 'García', 'Alvarez', 'Esme', 'esme123', 'esme@gmail.com', '4492858542', 'Col. Politécnica Calle Héroes #195', '2020-12-26'),
+(27, 'Jonhy', 'Bravo', 'Bravo', 'Jonhy', 'jonhy123', 'jonhy@yahoo.com', '4490294589', 'Col. Lomas Calles de la Ajedrez #695', '1999-12-23'),
+(28, 'Gabriela', 'Ortega', 'Montoya', 'Gabi', 'gabi123', 'gabi@hotmail.com', '4490859823', 'Col. Margaras Calle Del Rio #284', '2009-12-13'),
+(29, 'Guillermo', 'Álvarez ', 'López', 'Guillermo', 'guillermo123', 'guillermo@hotmail.com', '4491870989', 'Col. Benito Juárez Calle Anden #284', '2009-09-02'),
+(30, 'Anastasia', 'Jiménez', 'Ortega', 'Ana', 'ana123', 'ana@gmail.com', '4491049382', 'Col. Carvallito Calle Born #842', '2000-12-11');
 
 --
 -- Índices para tablas volcadas
@@ -618,19 +834,19 @@ ALTER TABLE `compra`
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Restricciones para tablas volcadas
